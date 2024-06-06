@@ -126,7 +126,7 @@ with DAG(
         table="dimCustomers",
         s3_bucket="food-delivery-data-analysis1",
         s3_key="dims/dimCustomers.csv",
-        copy_options=["CSV", "IGNOREHEADER 1", "QUOTE as '\"'"], 
+        copy_options=["CSV", "IGNOREHEADER 1", "QUOTE as '\"'"],
         aws_conn_id="aws_default",
         redshift_conn_id="redshift_connection_id",
     )
@@ -150,13 +150,13 @@ with DAG(
         s3_key="dims/dimDeliveryRiders.csv",
         copy_options=["CSV", "IGNOREHEADER 1", "QUOTE as '\"'"],
         aws_conn_id="aws_default",
-        redshift_conn_id="redshift_connection_id", 
+        redshift_conn_id="redshift_connection_id",
     )
 
     trigger_spark_streaming_dag = TriggerDagRunOperator(
         task_id="trigger_spark_streaming_dag",
         trigger_dag_id="submit_pyspark_streaming_job_to_emr",
-    ) 
+    )
 
 # First, create the schema
 create_schema >> [
