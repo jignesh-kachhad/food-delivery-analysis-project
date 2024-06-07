@@ -3,7 +3,7 @@ from airflow.providers.amazon.aws.transfers.s3_to_redshift import S3ToRedshiftOp
 from airflow.providers.postgres.operators.postgres import PostgresOperator
 from airflow.utils.dates import days_ago
 from datetime import timedelta
-from airflow.operators.trigger_dagrun import TriggerDagRunOperator
+from airflow.operators.dagrun_operator import TriggerDagRunOperator
 
 default_args = {
     "owner": "airflow",
