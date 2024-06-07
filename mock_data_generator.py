@@ -65,7 +65,7 @@ stream_name = "incoming-food-order-data-stream"
 # Order ID initialization
 order_id = 5000
 
-for _ in range(1000):
+for _ in range(10000):
     order = generate_order(customer_ids, restaurant_ids, rider_ids, order_id)
     print(order)
     send_order_to_kinesis(stream_name, order)
