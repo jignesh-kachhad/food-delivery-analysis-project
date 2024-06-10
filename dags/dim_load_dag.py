@@ -3,9 +3,9 @@ from airflow.providers.amazon.aws.transfers.s3_to_redshift import S3ToRedshiftOp
 from airflow.providers.postgres.operators.postgres import PostgresOperator
 from airflow.utils.dates import days_ago
 from datetime import timedelta
-# from airflow.operators.dagrun_operator import TriggerDagRunOperator
 from airflow.operators.trigger_dagrun import TriggerDagRunOperator
 
+# from airflow.operators.dagrun_operator import TriggerDagRunOperator
 
 default_args = {
     "owner": "airflow",
@@ -23,6 +23,7 @@ with DAG(
     schedule_interval=None,
     start_date=days_ago(1),
     catchup=False,
+    tags=["Create Schema"],
 ) as dag:
 
     # Create schema if it doesn't exist
@@ -128,7 +129,7 @@ with DAG(
         table="dimCustomers",
         s3_bucket="food-delivery-data-analysis1",
         s3_key="dims/dimCustomers.csv",
-        copy_options=["CSV", "IGNOREHEADER 1", "QUOTE as '\"'"], 
+        copy_options=["CSV", "IGNOREHEADER 1", "QUOTE as '\"'"],
         aws_conn_id="aws_default",
         redshift_conn_id="redshift_connection_id",
     )
@@ -152,7 +153,7 @@ with DAG(
         s3_key="dims/dimDeliveryRiders.csv",
         copy_options=["CSV", "IGNOREHEADER 1", "QUOTE as '\"'"],
         aws_conn_id="aws_default",
-        redshift_conn_id="redshift_connection_id", 
+        redshift_conn_id="redshift_connection_id",
     )
 
     trigger_spark_streaming_dag = TriggerDagRunOperator(
