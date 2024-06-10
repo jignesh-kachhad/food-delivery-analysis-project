@@ -512,7 +512,7 @@ for _ in range(10000):
 
 ### Prerequisites
 
-- Python 3.6+
+- Python 3.12
 - Apache Airflow
 - AWS Account with permissions for Kinesis, EMR, Redshift, and S3
 - Airflow
