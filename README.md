@@ -507,15 +507,14 @@ for _ in range(10000):
 - Python 3.6+
 - Apache Airflow
 - AWS Account with permissions for Kinesis, EMR, Redshift, and S3
-- Docker (optional, for running Airflow)
+- Airflow
 
 ### Installation
 
 1. **Clone the repository:**
 
 ```bash
-git clone https://github.com/your-username/food-delivery-data-pipeline.git
-cd food-delivery-data-pipeline
+git clone https://github.com/your-username/food-delivery-aws-streaming-pipeline.git
 ```
 
 ### Configuration
