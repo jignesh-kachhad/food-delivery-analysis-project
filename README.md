@@ -6,6 +6,8 @@ This repository contains code for a comprehensive data pipeline designed to hand
 ## Table of Contents
 
 - [Overview](#overview)
+- [Explanation](#explanation)
+- [Project Workflow](#project-workflow)
 - [Architecture](#architecture)
 - [Components](#components)
   - [Airflow DAGs](#airflow-dags)
@@ -19,6 +21,36 @@ This repository contains code for a comprehensive data pipeline designed to hand
 ## Overview
 
 This project demonstrates a real-time data pipeline using various AWS services such as Amazon Kinesis, EMR, and Redshift, orchestrated by Apache Airflow. The main components of the pipeline include data ingestion, processing, and storage, with a focus on scalability and real-time processing.
+
+## Explanation
+
+- Data Ingestion and Processing (Airflow DAG 1):
+
+    - DAG "create_and_load_dim": Manages the ETL process for loading dimension tables and preparing the schema in Redshift.
+    - Tasks: Create schema, drop existing tables, create new tables, load data from S3 into Redshift, and trigger a PySpark streaming job.
+
+- Streaming Job Submission (Airflow DAG 2):
+
+    - DAG "submit_pyspark_streaming_job_to_emr": Submits a PySpark streaming job to an EMR cluster.
+    - Task: Defines the steps to run the PySpark script on the EMR cluster, passing necessary credentials and parameters.
+
+- Streaming Data Processing (PySpark Script):
+
+    - Script: Reads data from a Kinesis stream, processes it using Spark, and writes the processed data to Redshift.
+    - Functionality: Parses JSON data, deduplicates it, and handles streaming write operations.
+
+- Data Generation (Python Data Generator):
+
+    - Script: Generates mock order data and streams it into Kinesis.
+    - Functionality: Uses Faker and random values to create realistic order records, simulating a live data feed.
+
+## Project Workflow
+
+- Data Generator: Continuously generates and sends mock order data to Kinesis.
+- Streaming Job: A PySpark script running on EMR reads data from Kinesis, processes it, and writes to Redshift.
+- Airflow DAGs:
+    - DAG 1: Sets up the Redshift schema, loads initial dimension data, and triggers the PySpark streaming job.
+    - DAG 2: Manages the submission of the PySpark job to the EMR cluster.
 
 ## Architecture
 
@@ -34,7 +66,7 @@ This project demonstrates a real-time data pipeline using various AWS services s
 ### Airflow DAGs
 
 <details>
- <summary>Airflow DAG 1: Create and Load Dimension Tables</summary>
+<summary>Airflow DAG 1: Create and Load Dimension Tables</summary>
 
 This DAG sets up the schema and tables in Redshift, loads initial dimension data from S3, and triggers the PySpark streaming job.
 
