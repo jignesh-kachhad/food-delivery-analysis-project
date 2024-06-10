@@ -312,6 +312,7 @@ step_adder = EmrAddStepsOperator(
 ```
 </details>
 
+### pyspark-Code
 <details>
 <summary>PySpark Script</summary>
 
@@ -420,6 +421,8 @@ query.awaitTermination()
 
 ```
 </details>
+
+### Data Generator
 <details>
 
  <summary>Data Generator</summary>
