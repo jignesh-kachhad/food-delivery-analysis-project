@@ -33,7 +33,8 @@ This project demonstrates a real-time data pipeline using various AWS services s
 
 ### Airflow DAGs
 
-#### 1. Create and Load Dimension Tables (create_and_load_dim.py)
+<details>
+ <summary>Create and Load Dimension Tables (create_and_load_dim.py)</summary>
 
 This DAG sets up the schema and tables in Redshift, loads initial dimension data from S3, and triggers the PySpark streaming job.
 
@@ -235,6 +236,7 @@ create_dimDeliveryRiders >> load_dimDeliveryRiders
 ] >> trigger_spark_streaming_dag
 
 ```
+</details>
 
 #### 2. Submit PySpark Streaming Job to EMR (submit_pyspark_streaming_job_to_emr.py)
 
