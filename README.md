@@ -108,7 +108,6 @@ import time
 ```
 
 ## Setup
-
 ### Prerequisites
 
 - Python 3.6+
