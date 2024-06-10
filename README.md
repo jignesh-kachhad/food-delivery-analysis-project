@@ -34,12 +34,11 @@ This project demonstrates a real-time data pipeline using various AWS services s
 ### Airflow DAGs
 
 <details>
- <summary>Create and Load Dimension Tables (create_and_load_dim.py)</summary>
+ <summary>Airflow DAG 1: Create and Load Dimension Tables</summary>
 
 This DAG sets up the schema and tables in Redshift, loads initial dimension data from S3, and triggers the PySpark streaming job.
 
 ```python
-# Airflow DAG 1
 
 from airflow import DAG
 from airflow.providers.amazon.aws.transfers.s3_to_redshift import S3ToRedshiftOperator
@@ -237,13 +236,12 @@ create_dimDeliveryRiders >> load_dimDeliveryRiders
 
 ```
 </details>
-
-#### 2. Submit PySpark Streaming Job to EMR (submit_pyspark_streaming_job_to_emr.py)
+<details>
+ <summary>Airflow DAG 2: Submit PySpark Streaming Job to EMR </summary>
 
 This DAG submits a PySpark streaming job to an EMR cluster.
 
 ```python
-# Airflow DAG 2
 
 from airflow import DAG
 from airflow.models import Variable
@@ -312,8 +310,10 @@ step_adder = EmrAddStepsOperator(
 )
 
 ```
+</details>
 
-### PySpark Script
+<details>
+<summary>PySpark Script</summary>
 
 The PySpark script reads data from the Kinesis stream, processes it, and writes it to Redshift.
 
@@ -419,8 +419,10 @@ print("Current batch written in Redshift")
 query.awaitTermination()
 
 ```
+</details>
+<details>
 
-### Data Generator
+ <summary>Data Generator</summary>
 
 The data generator script creates mock order data and streams it into Kinesis.
 
@@ -501,6 +503,7 @@ for _ in range(10000):
     order_id += 1  # Increment OrderID for the next order
 
 ```
+</details>
 
 ## Setup
 
