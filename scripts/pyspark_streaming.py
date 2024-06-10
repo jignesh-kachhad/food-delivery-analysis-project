@@ -18,7 +18,7 @@ parser.add_argument("--aws_secret_key", required=True, help="aws_secret_key")
 args = parser.parse_args()
 
 appName = "KinesisToRedshift"
-kinesisStreamName = "incoming-food-order-data-stream"
+kinesisStreamName = "incoming-food-order-data-streaming"
 kinesisRegion = "ap-south-1"
 checkpointLocation = "s3://stream-checkpointing1/kinesis-to-redshift/"
 redshiftJdbcUrl = f"jdbc:redshift://redshift-cluster-1.coyx8twvpafs.ap-south-1.redshift.amazonaws.com:5439/dev"
