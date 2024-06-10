@@ -1,5 +1,5 @@
 
-# Food Delivery Data Analysis Streaming Pipeline
+# Food Delivery AWS Streaming Pipeline
 
 This repository contains code for a comprehensive data pipeline designed to handle food delivery data. The pipeline involves generating mock order data, streaming the data into an Amazon Kinesis stream, processing the data using a PySpark streaming job on an EMR cluster, and loading the processed data into Amazon Redshift for analysis and reporting.
 
