@@ -10,9 +10,6 @@ This repository contains code for a comprehensive data pipeline designed to hand
 - [Project Workflow](#project-workflow)
 - [Architecture](#architecture)
 - [Components](#components)
-  - [Airflow DAGs](#airflow-dags)
-  - [PySpark Script](#pyspark-script)
-  - [Data Generator](#data-generator)
 - [Setup](#setup)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
@@ -62,8 +59,6 @@ This project demonstrates a real-time data pipeline using various AWS services s
 ![Architecture Diagram](path/to/your/architecture_diagram.png)
 
 ## Components
-
-### Airflow DAGs
 
 <details>
 <summary>Airflow DAG 1: Create and Load Dimension Tables</summary>
@@ -268,6 +263,7 @@ create_dimDeliveryRiders >> load_dimDeliveryRiders
 
 ```
 </details>
+
 <details>
  <summary>Airflow DAG 2: Submit PySpark Streaming Job to EMR </summary>
 
@@ -344,7 +340,6 @@ step_adder = EmrAddStepsOperator(
 ```
 </details>
 
-### PySpark Script
 <details>
 <summary>PySpark Script</summary>
 
@@ -454,7 +449,6 @@ query.awaitTermination()
 ```
 </details>
 
-### Data Generator
 <details>
 
  <summary>Data Generator</summary>
@@ -545,9 +539,8 @@ for _ in range(10000):
 ### Prerequisites
 
 - Python 3.12
-- Apache Airflow
+- Managed Apache Airflow
 - AWS Account with permissions for Kinesis, EMR, Redshift, and S3
-- Airflow
 
 ### Installation
 
