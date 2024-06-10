@@ -527,16 +527,16 @@ git clone https://github.com/your-username/food-delivery-aws-streaming-pipeline.
 
 ### Configuration
 
-1. **Set up Airflow connections and variables:**
+- Set up Airflow connections and variables:
 
    - Add connections for AWS and Redshift in the Airflow UI.
    - Add Airflow variables for `redshift_user`, `redshift_password`, `aws_access_key`, and `aws_secret_key`.
 
-2. **Prepare S3 Buckets:**
+- Prepare S3 Buckets:
 
    - Create S3 buckets for storing dimension data and temporary files.
 
-3. **Upload Initial Dimension Data to S3:**
+- Upload Initial Dimension Data to S3:
 
    - Ensure the CSV files (`dimCustomers.csv`, `dimRestaurants.csv`, `dimDeliveryRiders.csv`) are uploaded to the designated S3 bucket.
 
