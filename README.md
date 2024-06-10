@@ -312,7 +312,7 @@ step_adder = EmrAddStepsOperator(
 ```
 </details>
 
-### pyspark-Code
+### PySpark Script
 <details>
 <summary>PySpark Script</summary>
 
