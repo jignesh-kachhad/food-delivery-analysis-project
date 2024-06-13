@@ -56,7 +56,7 @@ This project demonstrates a real-time data pipeline using various AWS services s
 3. **Data Storage**: Processed data is loaded into Amazon Redshift for further analysis and reporting.
 4. **Orchestration**: Apache Airflow manages the workflow, including data ingestion, processing, and triggering dependent tasks.
 
-![Architecture Diagram](Food Delivery Real-Time Data Streaming Pipeline.png)
+![Architecture Diagram]([Food Delivery Real-Time Data Streaming Pipeline.png](https://github.com/jignesh-kachhad/food-delivery-aws-streaming-pipeline/blob/main/Food%20Delivery%20Real-Time%20Data%20Streaming%20Pipeline.png))
 
 ## Components
 
